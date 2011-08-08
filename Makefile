@@ -1,4 +1,4 @@
-P_NAME      :=  botserver
+P_NAME      :=  SandboxServer
 P_CXX_SRCS  :=  $(wildcard *.cpp)
 P_CXX_OBJS  :=  ${P_CXX_SRCS:.cpp=.o}
 P_OBJS      :=  $(P_CXX_OBJS) 
@@ -13,6 +13,7 @@ CC          :=  g++ -g
 all:            $(P_NAME)
 $(P_NAME):      $(P_OBJS)
 	$(CC) $(CCFLAGS) $(P_CXX_OBJS) -o $(P_NAME) $(LDFLAGS)
+	ctags -R .
 clean:
 	@- $(RM) $(P_NAME)
 	@- $(RM) $(P_OBJS)
